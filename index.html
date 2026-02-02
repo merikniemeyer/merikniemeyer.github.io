@@ -1,65 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
     <meta charset="UTF-8">
     <title> Merik Niemeyer </title>
     <meta name="author" content="Merik Niemeyer" >
-    <meta name="viewport" content="widt=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <style>
-        body, h1, h2, h3, h4, h5, h6  {
-          font-family: Arial, Helvetica, sans-serif ;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
 
 <body>
-	<div class="w3-top">
-		<div class="w3-bar w3-white w3-card">
-			<a href="#home" class="w3-bar-item w3-button w3-padding-16">Home</a>
-			<a href="activities.html" class="w3-bar-item w3-button w3-padding-16">Activities</a>
-<!-- 			<div class="w3-dropdown-hover">
-				<button class="w3-button w3-padding-16">Activities</button>
-				<div class="w3-dropdown-content w3-bar-block w3-card-4">
-				<a href="bm-seminar-sose22.html" class="w3-bar-item w3-button">Bachelor/Master Seminar Geometry and Dynamics</a>
-				<a href="junior-seminar-sose22.html" class="w3-bar-item w3-button">Junior Seminar Geometry and Dynamics</a>
-				<a href="ads-geometry.html" class="w3-bar-item w3-button">Reading Seminar: AdS Geometry and Representations</a>
-				<a href="https://sites.google.com/view/affine-buildings-heidelberg/home?authuser=0" class="w3-bar-item w3-button">Reading Seminar: Affine Buildings</a>
-				</div>
-			</div> -->
-			<div class="w3-right w3-hide-small">
-				<a href="https://www.mis.mpg.de" class="w3-bar-item w3-button"><img src="logo_mpi_mis_leipzig.png" width="auto" height="35px"></a>
-			</div>
-		</div>
-	</div>
+	<nav id="site-nav"></nav>
 
-	<div id="home" class="w3-auto w3-padding-64">
-        <h1 class="w3-center">Merik Niemeyer</h1>
-		<div class="w3-row">
-			<div class="w3-twothird w3-padding-large">
+	<main id="home" class="my-auto my-pad my-pad--lg">
+        <h1 class="my-center">Merik Niemeyer</h1>
+        <div class="my-center typing-wrap">
+            <span class="typing-text">Hey there. Welcome to my webpage :)</span>
+        </div>
+		<section class="my-row my-container my-pad-lg">
+			<div class="my-twothird">
 				<h4> About me </h4>
-				<p> Welcome to my web page! I am a PhD student in Anna Wienhard's <a href="https://www.mis.mpg.de/geometry-groups-dynamics">Geometry, Groups and Dynamics division</a> at the Max Planck Institute for Mathematics in the Sciences in Leipzig. I started my PhD in 2021 at Heidelberg University before moving to Leipzig in October 2023. Previously, I got my master's degree in Theoretical and Mathematical Physics at LMU Munich. </p>
+				<p> I am a PhD student in Anna Wienhard's <a href="https://www.mis.mpg.de/geometry-groups-dynamics">Geometry, Groups and Dynamics division</a> at the Max Planck Institute for Mathematics in the Sciences in Leipzig. I started my PhD in 2021 at Heidelberg University before moving to Leipzig in October 2023. Previously, I got my master's degree in Theoretical and Mathematical Physics at LMU Munich. </p>
 				<p> My research is focused on non-commutative cluster algebras and their connection to higher Teichmüller theory, specifically on cluster coordinates for Theta-positive representations and the investigation of the underlying cluster structures. More generally, I am interested in many aspects of higher Teichmüller theory and cluster combinatorics.</p>
 			</div>
 
-			<div class="w3-third w3-padding-64 w3-padding-large">
-					<img src="photo.png" alt="That's me" width="100%" align="right">
+			<div class="my-third">
+					<img src="photo2.jpg" alt="That's me" class="profile-photo" loading="lazy">
 			</div>
-		</div>
+		</section>
 
-		<div class="w3-container w3-padding-large">
+		<section class="my-container my-pad-lg">
 			<h4> News </h4>
 				<ul>
+					<li> My defense will take place on Feb 5, 2026.</li>
 					<li> I have submitted my thesis!</li>
 					<li> Together with Zack Greenberg, Dani Kaufman, and Anna Wienhard, I wrote an article on a noncommutative generalization of cluster algebras, find it <a href="https://arxiv.org/abs/2410.08813">here</a>.</li>
 				</ul>
-		</div>
+		</section>
 
-		<div class="w3-container w3-padding-large">
+		<section class="my-container my-pad-lg">
 			<h4> Where to find me </h4>
 			<p> Office A3 10 <br> MPI MiS <br> Inselstr. 22 <br> 04103 Leipzig </p>
 			<p> If you want to contact me, just send me an <a href="mailto:merik.niemeyer@mis.mpg.de">email</a>.</p>
-		</div>
+		</section>
             
-    </div>
+    </main>
 </body>
+
+<script defer src="theme.js"></script>
 
 </html>

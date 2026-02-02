@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Merik Niemeyer </title>
+    <meta name="author" content="Merik Niemeyer" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+</head>
+
+<body>
+	<nav id="site-nav"></nav>
+
+	<main class="my-auto my-pad my-pad--lg">
+        <h2 class="my-center my-page-title">Research</h2>
+        <img src="decoratedPolygons.jpg" alt="Decorated polygons" class="research-image" loading="lazy">
+
+		<section class="my-container my-pad-lg">
+			<h4> Research articles: </h4>
+				<ul>
+					<li><i>Noncommutative Polygonal Cluster Algebras</i>, joint with Z. Greenberg, D. Kaufman, A. Wienhard (submitted, <a href="https://arxiv.org/abs/2410.08813">arxiv</a>).</li>
+				</ul>
+		</section>
+
+		<section class="my-container my-pad-lg">
+			<h4> Expository articles: </h4>
+				<ul>
+					<li><i>More Cluster Combinatorics: g-vectors, c-vectors, F-polynomials</i>, in the <a href="https://publications.mfo.de/handle/mfo/4091">report</a> on the Arbeitsgemeinschaft on <i>Cluster Algebras</i> at the MFO.</li>
+					<li><i>Theta-Positivity I</i>, in the <a href="https://publications.mfo.de/handle/mfo/3987">report</a> on the Arbeitsgemeinschaft on <i>Higher Rank Teichmüller Theory</i> at the MFO.</li>
+				</ul>
+		</section>
+
+		<section class="my-container my-pad-lg">
+			<h3 class = "my-center"> But what is it about?! </h3>
+			<p>
+        Here is a gentle introduction to my research, based on my upcoming defense talk. For a quick mathematical overview, just jump <a href="#researchMath">ahead</a>.
+        The title of my thesis is
+      </p>
+			<div class = "my-center">
+				<i><b> Noncommutative Cluster Coordinates on Configuration Spaces of Decorated Flags and Local Systems for Spin Groups.</b></i>
+			</div>
+			<p> Let us explore this, starting from the beginning. </p>
+			<div class="my-row">
+				<div class="my-twothird">
+					<h4> What is a group?</h4>
+					<p> You should think of a group as consisting of the <i>symmetries</i> of... something.
+						You can compose them by simply applying one after the other.
+						A basic example is provided by the symmetry group of a triangle, $S_3$.
+						It consists of the identity (the transformation which does nothing), three reflections, and two rotations (by 120° and 240°).
+						All of these can be obtained by repeatedly applying the reflections about the two axes indicated in the picture.
+						The group $S_3$ is discrete, meaning that every transformation is a "jump".
+						You cannot "drive through" the group.
+						If you think about the rotations of a circle on the other hand, the resulting group <i>is</i> continuous.
+						It is usually called $\mathbb{S}^1$ or $\mathrm{SO}(2,\mathbb{R})$.</p>
+				</div>
+				<div class="my-third">
+			<img src="triangleSymmetries.jpg" alt="Triangle and two symmetry axes" class="research-image" loading="lazy">
+				</div>
+			</div>
+			<h4> The group $\mathrm{SL}_2(\mathbb{R})$</h4>
+			<p> Here is a fancier example of a continuous group. Consider $\mathbb{R}^2$, the plane with a specified point $0$:</p>
+			<img src="plane.jpg" alt="The plane" class="research-image research-image--sm" loading="lazy">
+			<p> The elements of $\mathrm{SL}_2(\mathbb{R})$ are the symmetries of this plane which do the following:</p>
+			<ul>
+				<li> fix $0$, </li>
+				<li> do not distort the grid, </li>
+				<li> preserve the signed area.</li>
+			</ul>
+			<p>These points should become clear by considering some examples. Pay attention to the way the little squares of the grid are deformed: This preserves their area. Moreover, the word "Hello" is never reflected.</p>
+		</section>
+		<div class="video-gallery" aria-label="Video gallery">
+            <div class="video-frame">
+                <video id="gallery-video" muted playsinline preload="metadata">
+                    <source src="SL2Rotation.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-controls" role="tablist" aria-label="Select a video">
+                <button class="video-thumb is-active" type="button" data-src="SL2Rotation.mp4" role="tab" aria-selected="true">Rotation</button>
+                <button class="video-thumb" type="button" data-src="SL2Stretching.mp4" role="tab" aria-selected="false">Squeezing</button>
+                <button class="video-thumb" type="button" data-src="SL2Dilation.mp4" role="tab" aria-selected="false">Shearing</button>
+            </div>
+        </div>
+		<section class="my-container my-pad-lg">
+			<p>Any transformation in $\mathrm{SL}_2(\mathbb{R})$ can be expressed as a matrix, which records the image of the two standard basis vectors:
+			$$ \mathrm{SL}_2(\mathbb{R})=\left\{
+					\begin{pmatrix}
+						a & b \\ c & d
+					\end{pmatrix}
+				\,\big|\, ad-bc = 1 \right\}\,.
+			$$
+			This is read as follows: Such a matrix sends the point $(1,0)$ on the $x$-axis to $(a,c)$, and the point $(0,1)$ on the $y$-axis to $(b,d)$.
+			Since the transformation does not distort the grid, this determines where any other point on the plane is sent. Moreover, the condition $ad-bc =1$ is equivalent to preserving the signed area.</p>
+			<h4>Positivity in $\mathrm{SL}_2(\mathbb{R})$</h4>
+			<p>We call an element
+				$$ g = \begin{pmatrix} 
+					a & b \\ c & d
+				\end{pmatrix}
+				$$
+			of $\mathrm{SL}_2(\mathbb{R})$ totally positive if all the entries are positive numbers.</p>
+			<p><i>Note for mathematicians:</i> In general an element of $\mathrm{SL}_n(\mathbb{R})$ is called totally positive if all of its minors are positive. Having positive entries is not sufficient.</p>
+			<p> But for such an element $g$ of $\mathrm{SL}_2(\mathbb{R})$, we know that the entries satisfy the relation $ad-bc = 1$.
+				Thus, if $a,b,c>0$, we can compute
+				$$ d= \frac{1+bc}{a}\,, $$
+				and this will also be positive. Therefore, we don't have to consider all the entries to figure out whether $g$ is positive.
+				In the same way, we could consider $b,c$ and $d$, and if they are all positive, we conclude that $a$ is positive.
+				The key takeaway here is that we have two positivity test, which are related by an equation.
+			</p>
+			<h4>Decorated flags</h4>
+			<p>We now switch gears and add some geometry to the picture: A decorated flag (for $\mathrm{SL}_2(\mathbb{R})$) is simply a nonzero vector in $\mathbb{R}^2$.
+				This is the same as a point in the plane which is not our specified point. Mathematicians prefer to draw them as arrows from zero to this point and call them vectors.
+				So, here is an example of a decorated flag (= vector):
+			</p>
+			<img src="decFlagSL2.jpg" alt="A decorated flag" class="research-image research-image--sm" loading="lazy">
+			<p>Now consider a decorated flag up to the action of $\mathrm{SL}_2(\mathbb{R})$. What does this mean?
+				In everyday life, you can recognize an object from any angle. It is the same object no matter how you see it.
+				Here, we are using the same idea: If you transform the plane using $\mathrm{SL}_2(\mathbb{R})$, we want to consider a decorated flag and its image the same.
+				Repeat this process with any number of decorated flags (for instance 4), and you get a configuration of (4) decorated flags.
+			</p>
+			<p> But let us go slow. First, we observe that there is only one configuration of 1 decorated flag.
+				Concretely, this means that if I choose a decorated flag, and you choose one, we can find an element of $\mathrm{SL}_2(\mathbb{R})$ which maps my decorated flag to yours.
+				I have visualized this:
+			</p>
+		</section>
+    <div class="video-gallery" aria-label="Flag video">
+            <div class="video-frame">
+                <video class="research-video" muted playsinline preload="metadata">
+                    <source src="Flag1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+    </div>
+		<section class="my-container my-pad-lg">
+			<p> To transform the decorated flag given by the long vector (my flag) into the other one, given by the short vector (your flag), we first rotate it onto the $x$-axis.
+				Then we use a squeezing map in $\mathrm{SL}_2(\mathbb{R})$ to adjust the length, and finally we rotate again.
+				Clearly, this procedure can relate any two decorated flags.
+			</p>
+			<p> Next, let us consider configurations of 2 decorated flags. There is definitely more than one such configuration.
+				This is clear, because $\mathrm{SL}_2(\mathbb{R})$ preserves the signed area.
+				Given a configuration of 2 decorated flags as in the image, you can compute the area of the indicated parallelogram.
+				Here it is important that a configuration is ordered. Thus if the blue vector is the first decorated flag, the signed area is positive. Otherwise, it is negative.
+			</p>
+			<img src="2decFlags.jpg" alt="A decorated flag" class="research-image research-image--sm" loading="lazy">
+			<p>
+				Now, $\mathrm{SL}_2(\mathbb{R})$ cannot transform two configurations of 2 decorated flags into each other if their signed area is different.
+				On the other hand, any two configurations with the same signed area can be transformed into each other. This is visualized in the next animation:
+			</p>
+		</section>
+		<div class="video-gallery" aria-label="Flag video 2">
+            <div class="video-frame">
+                <video class="research-video" muted playsinline preload="metadata">
+                    <source src="Flag2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+    </div>
+		<section class="my-container my-pad-lg">
+			<p>
+				What we have discovered now is that the signed area defines coordinates on the space of 2 decorated flags.
+				In other words, we can compute the signed area for any configuration of 2 decorated flags, and conversely it determines the configuration.
+			</p>
+			<h4>The coordinate machine</h4>
+			<p>
+				Now you might wonder how to describe configurations of 3, 4, 5... decorated flags. This is more complicated but we have a complete picture.
+				Basically one can build (combinatorial) coordinates in the following way:
+			</p>
+			<ul>
+				<li>choose a collection of pairs of decorated flags,</li>
+				<li>compute the signed area for any such pair.</li>
+			</ul>
+			<p>
+				Of course, the question is how to choose the collection in the first step. This is a very interesting question, related to triangulations of polygons but would take us a bit far here.
+				For the sake of this discussion, it is enought to know that such collections exist.
+				Any choice of such a collection gives us a set of coordinates which you can imagine as a little machine like this:
+			</p>
+			<img src="coordinateMachine.jpg" alt="Coordinate machine" class="research-image research-image--md" loading="lazy">
+			<p>
+				The real numbers which this machine spits out describe each such configuration uniquely.
+				This means that it is possible to draw the configuration if you are given the numbers (and know how the machine works).
+				By choosing different collections, we can build different coordinate machines.
+				Just like in our discussion of positivity for $\mathrm{SL}_2(\mathbb{R})$ it is possible to write down explicit equations to compute one set of coordinate numbers from the other.
+				How to do this exactly is described by the theory of <i>cluster algebras</i>.
+			</p>
+			<img src="coordinateTransformation.jpg" alt="Coordinate transformation" class="research-image research-image--md" loading="lazy">
+			<h4>In my thesis...</h4>
+			<p>I described a 'bigger' version of this.</p>
+			<ul>
+				<li>The underlying groups are much bigger than $\mathrm{SL}_2(\mathbb{R})$.</li>
+				<li>Flags are not just vectors in the plane.</li>
+				<li>Coordinates are not real numbers. In fact, they are noncommutative. You can think about matrices (but that is not exactly what they are).</li>
+				<li>The change of coordinates needs completely new methods.</li>
+			</ul>
+		</section>
+    <section id="researchMath" class="my-container my-pad-lg">
+			<h3 class="my-center"> A few mathematical details </h3>
+      <p>
+        The above discussion outlines some aspects of Fock-Goncharov's approach to higher Teichmüller theory for the special case $G=\mathrm{SL}_2(\mathbb{R})$.
+        More general, we have for any split real semisimple Lie group $G$ with decorated flag variety $\mathcal{A}=G/U$ (with $U$ the unipotent radical of a Borel subgroup $B$):
+      </p>
+      <ul>
+        <li>cluster coordinates on the space of (generic) configurations of $n$ decorated flags, $\mathrm{Conf}_n^\times(\mathcal{A})$,</li>
+        <li>the coordinate changes are described by cluster algebras, and</li>
+        <li>are consequently positive rational transformations.</li>
+      </ul>
+      <p>
+        All of this allowed Fock and Goncharov to obtain cluster coordinates on a moduli space $\mathscr{A}_{G,S}$ associated to a marked surface $S$.
+        Moreover, they could conclude that this variety has a well-defined positive part, which may be seen as a generalization of Penner's decorated Teichmüller space.
+      </p>
+      <p>
+        The notion of positivity which comes up in this context is Lusztig's total positivity for split real Lie groups.
+        This has been significantly generalized by Guichard & Wienhard with their new notion of $\Theta$-positivity.
+        The natural question which motivated much of my thesis was:
+      </p>
+      <div class = "my-center">
+				<b> How can we generalize the above story to this bigger setting? </b>
+			</div>
+      <p>
+        In my thesis, I considered the groups $G=\mathrm{Spin}(p,q)$, which admit a $\Theta$-positive structure. The main results are:
+      </p>
+      <ul>
+        <li>The construction of noncommutative cluster coordinates for configurations of decorated flags in the flag variety given by the $\Theta$-positive structure. Some coordinate functions take values in certain Clifford groups, while others are real.</li>
+        <li><b>In <a href="https://arxiv.org/abs/2410.08813">joint work</a> with Greenberg, Kaufman and Wienhard:</b> The introduction of the underlying noncommutative cluster algebras, which we call polygonal cluster algebras.</li>
+        <li>A concrete description of the coordinate changes, which allow to extend the coordinates to an analogue of Fock-Goncharov's $\mathscr{A}$-space.</li>
+        <li>Positivity tests for $G$.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+
+<!-- Scripts -->
+<script defer src="theme.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script defer src="research.js"></script>
+
+</html>

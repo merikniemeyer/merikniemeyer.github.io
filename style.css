@@ -1,0 +1,399 @@
+body, h1, h2, h3, h4, h5, h6 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #ffffff;
+  color: #111111;
+  line-height: 1.6;
+}
+
+@keyframes rise-fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-animate .my-auto {
+  animation: rise-fade 0.55s ease-out both;
+  animation-delay: 60ms;
+}
+
+.page-animate .my-container {
+  animation: rise-fade 0.5s ease-out both;
+  animation-delay: 110ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-animate .my-auto,
+  .page-animate .my-container {
+    animation: none;
+  }
+}
+
+/* Local layout utilities replacing the previous external dependency */
+.my-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.my-bar {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow: hidden;
+  justify-content: space-between;
+}
+
+.my-bar-item {
+  padding: 0 16px;
+  text-decoration: none;
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+}
+
+.my-button {
+  cursor: pointer;
+  user-select: none;
+}
+
+.my-button:hover {
+  background: #f1f1f1;
+}
+
+.my-white {
+  background: rgba(255, 255, 255, 0.4);
+  color: #000000;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.my-card {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.my-pad {
+  padding-block: var(--pad-block, 16px);
+}
+
+.my-pad--sm {
+  --pad-block: 16px;
+}
+
+.my-pad--lg {
+  --pad-block: 64px;
+}
+
+.my-pad-lg {
+  padding: 12px 48px;
+}
+
+.my-side-pad {
+  padding-left: 80px;
+  padding-right: 80px;
+  box-sizing: border-box;
+}
+
+.my-container {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.my-auto {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+}
+
+.my-center {
+  text-align: center;
+}
+
+.my-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 0;
+  margin-right: 0;
+  gap: 16px;
+  align-items: center;
+}
+
+.my-row > .my-third,
+.my-row > .my-twothird {
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
+}
+
+.my-third {
+  width: calc(25% - 8px);
+}
+
+.my-twothird {
+  width: calc(75% - 8px);
+}
+
+.my-right {
+  margin-left: auto;
+}
+
+.my-bar-nav {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-title {
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0 16px;
+  color: #ff00a2;
+  font-size: clamp(0.95rem, 1.1vw + 0.7rem, 1.4rem);
+  white-space: nowrap;
+}
+
+.my-hide-small {
+  display: block;
+}
+
+.mpi-logo {
+  display: block;
+  height: 35px;
+  width: auto;
+}
+
+.profile-photo {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.my-page-title {
+  margin-bottom: 16px;
+}
+
+.research-image {
+  display: block;
+  max-width: 80%;
+  height: auto;
+  margin: 0 auto 24px;
+  border-radius: 8px;
+}
+
+.research-image--sm {
+  max-width: 500px;
+}
+
+.research-image--md {
+  max-width: 700px;
+}
+
+.typing-wrap {
+  margin-top: 24px;
+}
+
+.typing-text {
+  display: inline-block;
+  font-family: "Courier New", monospace;
+  font-size: 1.2rem;
+  color: #f59a23;
+  text-shadow:
+    0 0 2px rgba(245, 154, 35, 0.7),
+    0 0 4px rgba(245, 154, 35, 0.5);
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid currentColor;
+  width: 0;
+  animation:
+    typing 4s steps(35, end) 3s forwards,
+    cursor-blink 1s step-end 3,
+    cursor-hide 0s linear 7s forwards,
+    glow-pulse 2.6s ease-in-out infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 35ch;
+  }
+}
+
+@keyframes cursor-blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes cursor-hide {
+  to {
+    border-color: transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typing-text {
+    animation: none;
+    width: 35ch;
+  }
+}
+
+@media (max-width: 480px) {
+  .typing-text {
+    font-size: 0.8rem;
+  }
+}
+
+.video-gallery {
+  margin: 24px auto 0;
+  display: grid;
+  gap: 16px;
+  max-width: 500px;
+}
+
+.video-frame {
+  position: relative;
+  background: #0f0f0f;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  aspect-ratio: 16 / 9;
+}
+
+.video-frame video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  object-fit: contain;
+  opacity: 1;
+  transition: opacity 0.35s ease;
+}
+
+.video-frame video.is-fading {
+  opacity: 0;
+}
+
+
+.video-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.video-thumb {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: transparent;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.video-thumb.is-active {
+  background: #f59a23;
+  color: #111111;
+  border-color: transparent;
+}
+
+.dark-mode .video-thumb {
+  color: #ffffff;
+}
+
+@media (max-width: 600px) {
+  .my-hide-small {
+    display: none;
+  }
+
+  .my-row {
+    flex-direction: column;
+  }
+
+  .my-third,
+  .my-twothird {
+    width: 100%;
+  }
+}
+
+.theme-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 8px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.theme-switch .slider {
+  width: 44px;
+  height: 24px;
+  background: #e0e0e0;
+  border-radius: 999px;
+  position: relative;
+  transition: background 0.2s ease;
+}
+
+.theme-switch .slider::after {
+  content: "";
+  width: 18px;
+  height: 18px;
+  background: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.theme-switch input:checked + .slider {
+  background: #4f4f4f;
+}
+
+.theme-switch input:checked + .slider::after {
+  transform: translateX(20px);
+}
+
+.dark-mode {
+  background: #121212;
+  color: #e6e6e6;
+}
+
+.dark-mode a {
+  color: #d6e4ff;
+}
+
+.dark-mode .my-white {
+  background-color: rgba(27, 27, 27, 0.4) !important;
+  color: #e6e6e6 !important;
+}
+
+.dark-mode .my-card {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.dark-mode .my-button:hover {
+  background: #2a2a2a;
+  color: #e6e6e6;
+}
+
+.dark-mode .nav-title {
+  color: #00a401;
+}
+
+.dark-mode .mpi-logo {
+  filter: invert(1);
+}
