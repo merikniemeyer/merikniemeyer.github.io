@@ -76,22 +76,48 @@
     };
   }
 
-  function autoplayWhenFullyVisible(video, onVisible) {
+  function autoplayWhenVisible(video, onVisible) {
     if ("IntersectionObserver" in window) {
       var observer = new IntersectionObserver(
         function (entries) {
           entries.forEach(function (entry) {
-            if (entry.isIntersecting && entry.intersectionRatio === 1) {
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
               onVisible();
             }
           });
         },
-        { threshold: 1 }
+        { threshold: [0.6] }
       );
       observer.observe(video);
     } else {
       onVisible();
     }
+  }
+
+  function attemptAutoplay(video, capturePoster) {
+    video.muted = true;
+    video.setAttribute("muted", "");
+    video.playsInline = true;
+    video.setAttribute("playsinline", "");
+    if (capturePoster) capturePoster();
+    video.playbackRate = 0.8;
+
+    function tryPlay() {
+      var playPromise = video.play();
+      if (playPromise && playPromise.catch) {
+        playPromise.catch(function () {});
+      }
+    }
+
+    tryPlay();
+
+    video.addEventListener(
+      "canplay",
+      function () {
+        tryPlay();
+      },
+      { once: true }
+    );
   }
 
   function initGalleryVideo() {
@@ -123,12 +149,7 @@
         video.pause();
         video.src = src;
         video.load();
-        capturePoster();
-        video.playbackRate = 0.8;
-        var playPromise = video.play();
-        if (playPromise && playPromise.catch) {
-          playPromise.catch(function () {});
-        }
+        attemptAutoplay(video, capturePoster);
         video.classList.remove("is-fading");
       }, 180);
     }
@@ -142,7 +163,7 @@
 
     addControlHandlers(video, 3000);
 
-    autoplayWhenFullyVisible(video, function () {
+    autoplayWhenVisible(video, function () {
       if (hasAutoplayed) return;
       setActiveTab(tabs[0]);
       playVideo(tabs[0].getAttribute("data-src"));
@@ -178,16 +199,11 @@
 
       addControlHandlers(video, 3000);
 
-      autoplayWhenFullyVisible(video, function () {
+      autoplayWhenVisible(video, function () {
         if (hasAutoplayed) return;
         hasAutoplayed = true;
         video.controls = false;
-        capturePoster();
-        video.playbackRate = 0.8;
-        var playPromise = video.play();
-        if (playPromise && playPromise.catch) {
-          playPromise.catch(function () {});
-        }
+        attemptAutoplay(video, capturePoster);
       });
 
       video.addEventListener("ended", function () {

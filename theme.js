@@ -26,7 +26,10 @@
       '<a href="' +
       homeHref +
       '" class="nav-title">Merik Niemeyer</a>' +
-      '<div class="my-bar-nav">' +
+      '<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">' +
+      '<span class="nav-toggle-icon" aria-hidden="true"></span>' +
+      "</button>" +
+      '<div id="nav-menu" class="my-bar-nav">' +
       navLink(homeHref, "Home", "home") +
       navLink("research.html", "Research", "research.html") +
       navLink("activities.html", "Activities", "activities.html") +
@@ -41,6 +44,15 @@
   document.body.classList.add("page-animate");
 
   var toggle = document.getElementById("theme-toggle");
+  var navToggle = document.querySelector(".nav-toggle");
+  var navMenu = document.getElementById("nav-menu");
+  if (navToggle && navMenu) {
+    navToggle.addEventListener("click", function () {
+      var isOpen = navMenu.classList.toggle("is-open");
+      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+  }
+
   if (!toggle) return;
 
   var storageKey = "theme";
